@@ -22,7 +22,12 @@
     </head>
     <body>
         <h1>Lista de Questões</h1>
-
+        <c:if test="${param.msg eq 1}">
+            <h2 style="color:greenyellow;">Editado com sucesso!</h2>
+        </c:if>
+        <c:if test="${param.msg eq 2}">
+            <h2 style="color:red;">Excluido com sucesso!</h2>
+        </c:if>
         <jsp:useBean id="dao" class="br.com.map.dao.DAOQuestao"/>
         <table border="1">
             <tr>
@@ -58,8 +63,9 @@
                     <td>${questao.altLetraC}</td>
                     <td>${questao.altLetraD}</td>
                     <td>${questao.altLetraE}</td>
-                    <td><a href="editar.jsp?id=${questao.id}">Editar</a></td>
-                    <td><a href="../QuestaoServlet?op=excluir&id=${questao.id}">Excluir</a></td>
+                    <td><a href="editar.jsp?id=${questao.id}"><button>Editar</button></a></td>
+                    <td><form method="POST" action="../QuestaoServlet?op=excluir&id=${questao.id}"><input type="submit" value="Excluir"/></form></td>
+                    <!--<td><a href="../QuestaoServlet?op=excluir">Excluir</a></td>-->
                 </tr>
             </c:forEach>
         </table>

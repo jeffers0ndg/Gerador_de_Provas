@@ -33,17 +33,20 @@ public class QuestaoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        //response.getWriter().write("Cadastrado com Sucesso!!"+request.getParameter("enunciado"));
         String op = request.getParameter("op");
         switch(op){
             case "cadastrar":
                 cadastrar(request);
+                response.sendRedirect("questao/cadastrar.jsp?msg=1");
                 break;
             case "editar":
                 editar(request);
+                response.sendRedirect("questao/listar.jsp?msg=1");
                 break;
             case "excluir":
                 excluir(request);
+                response.sendRedirect("questao/listar.jsp?msg=2");
                 break;
         }
         
@@ -134,6 +137,13 @@ public void editar(HttpServletRequest request){
     private void excluir(HttpServletRequest request) {
         
         long id = Long.valueOf(request.getParameter("id"));
+        try {
+            Questao q = daoq.find(id);
+            daoq.remove(q);
+        } catch (DaoException ex) {
+            Logger.getLogger(QuestaoServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
     }
    

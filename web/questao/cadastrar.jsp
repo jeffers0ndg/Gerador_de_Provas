@@ -10,8 +10,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="../js/ajax.js"></script>
         <title>Cadastrar Questão</title>
         <style>
+            h2{
+                color: greenyellow;
+            }
             textArea{
                 width: 50%;
             }
@@ -21,7 +25,12 @@
         </style>
     </head>
     <body>
-        <h1>Cadastro de Questões</h1>
+
+        <h1 id="res">Cadastro de Questões</h1>
+        <c:if test="${param.msg eq 1}">
+            <h2>Cadastrado com sucesso!</h2>
+        </c:if>
+
         <p><strong>Materia:</strong></p>
         <jsp:useBean id="dao" class="br.com.map.dao.DAOMateria"/>
         <form method="POST" action="../QuestaoServlet?op=cadastrar">
@@ -35,7 +44,7 @@
                 <option value="2">Medio</option>
                 <option value="3">Dificil</option>
             </select>
-            
+
             <p><strong>Enunciado:</strong></p>
             <textarea name="enunciado" ></textarea><br>
             <p><strong>Resolução:</strong></p>
@@ -56,7 +65,9 @@
             <textarea name="letrad"></textarea><br>
             <p><strong>E)</strong></p>
             <textarea name="letrae"></textarea><br>
-            <p><input type="submit" value="Cadastrar"/></p>
-        </form>    
-    </body>
+            <p><input type="submit" value="Cadastrar" /></p>
+            <p><input type="button" value="Ajax" onclick="ola();"/></p>
+        </form>
+
+</body>
 </html>
