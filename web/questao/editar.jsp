@@ -29,7 +29,7 @@
         
         <jsp:useBean id="daoMateria" class="br.com.map.dao.DAOMateria"/>
         
-        <form method="POST" action="../QuestaoServlet">
+        <form method="POST" action="../QuestaoServlet?op=editar&id=${param.id}">
             <select name="materia">
                 <c:forEach var="materia" items="${daoMateria.all()}">
                     
@@ -67,11 +67,37 @@
             <textarea name="enunciado">${questao.enunciado}</textarea><br>
             <p><strong>Resolução:</strong></p>
             <select name="resolucao">
-                <option value="a">A</option>
-                <option value="b">B</option>
-                <option value="c">C</option>
-                <option value="d">D</option>
-                <option value="e">E</option>
+                <c:if test="${questao.resolucao eq a}">
+                    <option selected value="a">A</option> 
+                </c:if>
+                <c:if test="${questao.resolucao eq b}">
+                    <option selected value="b">B</option> 
+                </c:if>
+                <c:if test="${questao.resolucao eq c}">
+                    <option selected value="c">C</option> 
+                </c:if>
+                <c:if test="${questao.resolucao eq d}">
+                    <option selected value="d">D</option> 
+                </c:if>
+                <c:if test="${questao.resolucao eq e}">
+                    <option selected value="e">E</option> 
+                </c:if>
+                
+                <c:if test="${questao.resolucao != a}">
+                    <option value="a">A</option> 
+                </c:if>
+                <c:if test="${questao.resolucao != b}">
+                    <option value="b">B</option> 
+                </c:if>
+                <c:if test="${questao.resolucao != c}">
+                    <option value="c">C</option> 
+                </c:if>
+                <c:if test="${questao.resolucao != d}">
+                    <option value="d">D</option> 
+                </c:if>
+                <c:if test="${questao.resolucao != e}">
+                    <option value="e">E</option> 
+                </c:if>
             </select>
             <p><strong>A)</strong></p>
             <textarea name="letraa">${questao.altLetraA}</textarea><br>
@@ -83,7 +109,7 @@
             <textarea name="letrad">${questao.altLetraD}</textarea><br>
             <p><strong>E)</strong></p>
             <textarea name="letrae">${questao.altLetraE}</textarea><br>
-            <p><input type="submit" value="Cadastrar"/></p>
+            <p><input type="submit" value="Editar"/></p>
         </form>    
     </body>
 </html>

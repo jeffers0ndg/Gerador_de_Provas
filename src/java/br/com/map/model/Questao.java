@@ -116,6 +116,10 @@ public class Questao implements Serializable {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         System.out.println(materia+" " +enunciado +" "+ resolucao + "" + altLetraA);

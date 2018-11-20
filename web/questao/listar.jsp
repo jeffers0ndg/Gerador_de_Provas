@@ -35,7 +35,8 @@
                 <th>c)</th>
                 <th>d)</th>
                 <th>e)</th>
-                <th> </th>
+                <th>Editar</th>
+                <th>Excluir</th>
             </tr>
             <c:forEach var="questao" items="${dao.all()}">
                 <tr>
@@ -58,6 +59,7 @@
                     <td>${questao.altLetraD}</td>
                     <td>${questao.altLetraE}</td>
                     <td><a href="editar.jsp?id=${questao.id}">Editar</a></td>
+                    <td><a href="../QuestaoServlet?op=excluir&id=${questao.id}">Excluir</a></td>
                 </tr>
             </c:forEach>
         </table>

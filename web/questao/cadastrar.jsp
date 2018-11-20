@@ -24,7 +24,7 @@
         <h1>Cadastro de Questões</h1>
         <p><strong>Materia:</strong></p>
         <jsp:useBean id="dao" class="br.com.map.dao.DAOMateria"/>
-        <form method="POST" action="../QuestaoServlet">
+        <form method="POST" action="../QuestaoServlet?op=cadastrar">
             <select name="materia">
                 <c:forEach var="materia" items="${dao.all()}">
                     <option value="${materia.id}">${materia.nome}</option>
