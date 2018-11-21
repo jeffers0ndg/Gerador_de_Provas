@@ -17,8 +17,11 @@ public class Main {
 
   public static void main(String[] args) throws DaoException {
             
-    DAOMateria dao = new DAOMateria();
-    dao.findByName("Matematica");
+      DAOProva daop = new DAOProva();
+      
+      for (Questao q : daop.find(1l).getQuestoes()) {
+          System.out.println(q.getEnunciado());
+      }
     
     //Livro l = new Livro();
     //l.setTitulo("Era uma vez");

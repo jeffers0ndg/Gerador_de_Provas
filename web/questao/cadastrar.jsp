@@ -10,44 +10,34 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script type="text/javascript" src="../js/ajax.js"></script>
         <title>Cadastrar Questão</title>
         <style>
-            h2{
-                color: greenyellow;
-            }
             textArea{
                 width: 50%;
             }
+            #materia{
+                width: 50%;
+            }
             select{
+
                 width: 25%;
             }
         </style>
     </head>
     <body>
-
-        <h1 id="res">Cadastro de Questões</h1>
-        <c:if test="${param.msg eq 1}">
-            <h2>Cadastrado com sucesso!</h2>
-        </c:if>
+    <center>
+        <h1>Cadastro de Questões</h1>
 
         <p><strong>Materia:</strong></p>
         <jsp:useBean id="dao" class="br.com.map.dao.DAOMateria"/>
         <form method="POST" action="../QuestaoServlet?op=cadastrar">
-            <select name="materia">
+            <select id="materia" name="materia">
                 <c:forEach var="materia" items="${dao.all()}">
                     <option value="${materia.id}">${materia.nome}</option>
                 </c:forEach>
             </select>
-            <select name="dificuldade">
-                <option value="1">Facil</option>
-                <option value="2">Medio</option>
-                <option value="3">Dificil</option>
-            </select>
+            <p><strong>Resolução:</strong><strong style="margin-left: 19%">Dificuldade:</strong></p>
 
-            <p><strong>Enunciado:</strong></p>
-            <textarea name="enunciado" ></textarea><br>
-            <p><strong>Resolução:</strong></p>
             <select name="resolucao">
                 <option value="a">A</option>
                 <option value="b">B</option>
@@ -55,6 +45,14 @@
                 <option value="d">D</option>
                 <option value="e">E</option>
             </select>
+
+            <select name="dificuldade">
+                <option value="1">Facil</option>
+                <option value="2">Medio</option>
+                <option value="3">Dificil</option>
+            </select>
+            <p><strong>Enunciado:</strong></p>
+            <textarea name="enunciado" ></textarea><br>
             <p><strong>A)</strong></p>
             <textarea name="letraa"></textarea><br>
             <p><strong>B)</strong></p>
@@ -64,10 +62,10 @@
             <p><strong>D)</strong></p>
             <textarea name="letrad"></textarea><br>
             <p><strong>E)</strong></p>
-            <textarea name="letrae"></textarea><br>
-            <p><input type="submit" value="Cadastrar" /></p>
-            <p><input type="button" value="Ajax" onclick="ola();"/></p>
+            <textarea name="letrae"></textarea><br><br>
+            <input type="submit" value="Cadastrar" />
         </form>
-
+        <br><a href="listar.jsp"><button>Voltar</button></a>
+    </center>
 </body>
 </html>

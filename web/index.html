@@ -9,11 +9,25 @@ and open the template in the editor.
         <title>Gerador de Provas</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #menu ul li { 
+                display: inline;
+                padding: 10px 5px;
+                background-color: lightgray;
+            }
+            
+            
+        </style>
     </head>
     <body>
-        <ul>
-            <li><a href="questao/cadastrar.jsp">Cadastrar questões</a></li>
-            <li><a href="questao/listar.jsp">Listar/Editar questões</a></li>
-        </ul>
+    <center>
+        <nav id="menu">
+            <ul>
+                <li><a href="#">Matéria</a></li>
+                <li><a href="questao/listar.jsp">Questões</a></li>
+                <li><a href="#">Prova</a></li>
+            </ul>
+        </nav>
+    </center>
     </body>
 </html>

@@ -38,7 +38,7 @@ public class QuestaoServlet extends HttpServlet {
         switch(op){
             case "cadastrar":
                 cadastrar(request);
-                response.sendRedirect("questao/cadastrar.jsp?msg=1");
+                response.sendRedirect("questao/listar.jsp?msg=0");
                 break;
             case "editar":
                 editar(request);

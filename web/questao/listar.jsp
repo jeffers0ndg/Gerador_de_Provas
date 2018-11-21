@@ -18,23 +18,34 @@
             select{
                 width: 25%;
             }
+            
+            table{
+                text-align: center;
+            }
         </style>
     </head>
     <body>
-        <h1>Lista de Questões</h1>
+    <center>
+        
+        <c:if test="${param.msg eq 0}">
+            <h2 style="color:greenyellow;">Cadastrado com sucesso!</h2>
+        </c:if>
         <c:if test="${param.msg eq 1}">
-            <h2 style="color:greenyellow;">Editado com sucesso!</h2>
+            <h2 style="color:green;">Editado com sucesso!</h2>
         </c:if>
         <c:if test="${param.msg eq 2}">
             <h2 style="color:red;">Excluido com sucesso!</h2>
         </c:if>
+            
+        <h1>Lista de Questões</h1>
+        
         <jsp:useBean id="dao" class="br.com.map.dao.DAOQuestao"/>
         <table border="1">
             <tr>
                 <th>Materia</th>
-                <th>Dificuldade</th>
+                <th>Difi.</th>
                 <th>Enunciado</th>
-                <th>Resolucão</th>
+                <th>Resol.</th>
                 <th>a)</th>
                 <th>b)</th>
                 <th>c)</th>
@@ -55,7 +66,7 @@
                     <c:if test="${questao.dificuldade eq 3}">
                         <td>Dificil</td>
                     </c:if>
-                    
+
                     <td>${questao.enunciado}</td>
                     <td>${questao.resolucao}</td>
                     <td>${questao.altLetraA}</td>
@@ -65,10 +76,11 @@
                     <td>${questao.altLetraE}</td>
                     <td><a href="editar.jsp?id=${questao.id}"><button>Editar</button></a></td>
                     <td><form method="POST" action="../QuestaoServlet?op=excluir&id=${questao.id}"><input type="submit" value="Excluir"/></form></td>
-                    <!--<td><a href="../QuestaoServlet?op=excluir">Excluir</a></td>-->
                 </tr>
             </c:forEach>
         </table>
-
-    </body>
+        <br><a href="cadastrar.jsp"><button>Cadastrar</button></a>
+        <a href="../index.html"><button>Voltar</button>
+    </center>
+</body>
 </html>
