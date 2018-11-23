@@ -14,6 +14,7 @@ public class Prova implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
+    private String titulo;
     @OneToMany
     private  Collection<Materia> materias;
     @OneToMany
@@ -32,7 +33,14 @@ public class Prova implements Serializable {
         return materias;
     }
 
-   
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
     public Long getId() {
         return id;
     }

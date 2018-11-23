@@ -118,6 +118,7 @@
             <textarea name="letrae">${questao.altLetraE}</textarea><br><br>
             <input type="submit" value="Editar"/>
         </form>
+            <br><a href="listar.jsp"><button>Voltar</button></a>
     </center> 
 </body>
 </html>

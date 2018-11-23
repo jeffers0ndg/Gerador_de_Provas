@@ -122,8 +122,8 @@ public class Questao implements Serializable {
 
     @Override
     public String toString() {
-        System.out.println(materia+" " +enunciado +" "+ resolucao + "" + altLetraA);
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        return materia+" " +dificuldade +" "+ resolucao +" \n";
+        //return super.toString(); //To change body of generated methods, choose Tools | Templates.
     }
 
     

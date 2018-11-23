@@ -34,8 +34,7 @@ public class Materia implements Serializable {
 
     @Override
     public String toString() {
-        System.out.println("ID: "+id+" NOME: "+nome);
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        return "Id: "+id+" Nome: "+nome;
     }
     
     

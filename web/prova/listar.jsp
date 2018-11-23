@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Questões</title>
+        <title>Provas</title>
         <style>
             textArea{width: 50%;}
             
@@ -32,16 +32,13 @@
         <h2 style="color:red;">Excluido com sucesso!</h2>
     </c:if>
 
-    <h1>Questões</h1>
-    
-    <br><a href="cadastrar.jsp"><button>Cadastrar</button></a>
-    <a href="../index.html"><button>Voltar</button></a><br>
+    <h1>Provas</h1>
 
     <jsp:useBean id="dao" class="br.com.map.dao.DAOQuestao"/>
-    <br><table border="1" cellpadding="4" cellspacing="0">
+    <table border="1" cellpadding="4" cellspacing="0">
     <tr>
+    <th>Titulo</th>
     <th>Materia</th>
-    <th>Difi.</th>
     <th>Enunciado</th>
     <th>Resol.</th>
     <th>a)</th>
@@ -77,8 +74,8 @@
         </tr>
     </c:forEach>
     </table>
-    
-        
+    <br><a href="cadastrar.jsp"><button>Cadastrar</button></a>
+    <a href="../index.html"><button>Voltar</button>
     </center>
     </body>
     </html>
