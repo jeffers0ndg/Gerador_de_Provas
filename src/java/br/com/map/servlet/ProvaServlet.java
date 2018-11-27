@@ -47,17 +47,25 @@ public class ProvaServlet extends HttpServlet {
                 break;
             case "editar":
                 editar(request);
-                //response.sendRedirect("questao/listar.jsp?msg=1");
+                response.sendRedirect("prova/listar.jsp?msg=1");
                 break;
             case "excluir":
-                //excluir(request);
-                //response.sendRedirect("questao/listar.jsp?msg=2");
+                excluir(request);
+                response.sendRedirect("prova/listar.jsp?msg=2");
                 break;
         }
     }
 
     private void editar(HttpServletRequest request) {
-
+        long id = Long.valueOf(request.getParameter("id"));
+        String[] idsMaterias = request.getParameterValues("materias");
+        String titulo = request.getParameter("titulos");
+        
+        try {
+            facade.editarProva(id, titulo, idsMaterias);
+        } catch (DaoException ex) {
+            Logger.getLogger(ProvaServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void gerar(HttpServletRequest request) {
@@ -68,6 +76,15 @@ public class ProvaServlet extends HttpServlet {
             facade.salvarProva(titulo, idsMaterias);
         } catch (DaoException ex) {
             Logger.getLogger(ProvaServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void excluir(HttpServletRequest request) {
+    long id = Long.valueOf(request.getParameter("id"));
+        try {
+            facade.excluirProva(id);
+        } catch (DaoException ex) {
+            Logger.getLogger(QuestaoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

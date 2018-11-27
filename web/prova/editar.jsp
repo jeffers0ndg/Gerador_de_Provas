@@ -20,41 +20,33 @@
         </c:if>
         <h1>Gerar Prova</h1>
 
-        <jsp:useBean id="daom" class="br.com.map.dao.DAOMateria"/>
         <jsp:useBean id="daop" class="br.com.map.dao.DAOProva"/>
-        
-        <c:set var="todasMaterias" value="${daom.all()}"/>
-        <c:set var="provaMaterias" value="${daop.find(param.id).materias}"/>
-        <c:set var="tam" value="${daop.find(param.id).materias}"/>
-        
-        
-        <form method="POST" action="../ProvaServlet?op=gerar">
+        <jsp:useBean id="facade" class="br.com.map.facade.ProvaFacade"/>
+        <c:set var="prova" value="${daop.find(param.id)}"/>
+        <form method="POST" action="../ProvaServlet?op=editar&id=${param.id}">
+                    
             <p><strong>Título:</strong></p>
-            <input type="text" name="titulos" value="${daop.find(param.id).titulo}"/><br><br>
+            <input type="text" name="titulos" value="${prova.titulo}"/><br><br>
             <table border="1" cellpadding="4" cellspacing="0">
                 <tr>
                     <th>Matéria</th>
                 </tr>
 
-                <c:forEach var="i" begin="0" end="${daom.all().size()-1}" >
-                    
-                    <c:if test="${todasMaterias[i].id != provaMaterias[i].id}"> 
-                        <tr>
-                            <td><label for="materias"><input multiple="multiple" name="materias" type="checkbox" value="${todasMaterias[i].id}"/>${todasMaterias[i].nome}</label></td>
-                        </tr>
-                    </c:if>
-                    <c:if test="${todasMaterias[i].id == provaMaterias[i].id}"> 
-                        <tr>
-                            <td><label for="materias"><input checked multiple="multiple" name="materias" type="checkbox" value="${todasMaterias[i].id}"/>${todasMaterias[i].nome}</label></td>
-                        </tr>
-                    </c:if>
-                    
-                       
+                <c:forEach var="materia" items="${prova.materias}">
+                    <tr>
+                        <td><label for="materias"><input checked multiple="multiple" name="materias" type="checkbox" value="${materia.id}"/>${materia.nome}</label></td>
+                    </tr>
                 </c:forEach>
+                <c:forEach var="materia" items="${facade.materiasProva(param.id)}">
+                    <tr>
+                        <td><label for="materias"><input multiple="multiple" name="materias" type="checkbox" value="${materia.id}"/>${materia.nome}</label></td>
+                    </tr>
+                </c:forEach>
+
             </table>
             <br><input type="submit" value="Gerar" />
         </form>
-        <br><a href="../index.html"><button>Voltar</button><br>
+        <br><a href="listar.jsp"><button>Voltar</button><br>
             </center>
 
             </body>

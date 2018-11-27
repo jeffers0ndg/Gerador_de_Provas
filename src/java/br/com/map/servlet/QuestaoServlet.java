@@ -1,11 +1,7 @@
 package br.com.map.servlet;
 
-import br.com.map.dao.DAOMateria;
-import br.com.map.dao.DAOQuestao;
 import br.com.map.dao.DaoException;
 import br.com.map.facade.QuestaoFacade;
-import br.com.map.model.Materia;
-import br.com.map.model.Questao;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

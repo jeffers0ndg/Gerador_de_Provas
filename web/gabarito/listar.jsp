@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Questões</title>
+        <title>Gabarito</title>
         <style>
             textArea{width: 50%;}
 
@@ -31,29 +31,21 @@
         <c:if test="${param.msg eq 2}">
             <h2 style="color:red;">Excluido com sucesso!</h2>
         </c:if>
+            
+        <h1>Gabarito</h1>
+        <strong>Selecione a prova:</strong><br><br>
 
-        <h1>Prova</h1>
-
-        <br><a href="gerar.jsp"><button>Gerar</button></a>
-        <a href="../index.html"><button>Voltar</button></a><br>
+       
 
         <jsp:useBean id="dao" class="br.com.map.dao.DAOProva"/>
-        <br><table border="1" cellpadding="4" cellspacing="0">
-            <tr>
-                <th>Título</th>
-                <th>Detalhes</th>
-                <th>Editar</th>
-                <th>Excluir</th>
-            </tr>
-            <c:forEach var="prova" items="${dao.all()}">
-                <tr>
-                    <td>${prova.titulo}</td>
-                    <td><a href="listardetalhes.jsp?id=${questao.id}"><button>Ver</button></a></td>
-                    <td><a href="editar.jsp?id=${questao.id}"><button>Editar</button></a></td>
-                    <td><form method="POST" action="../ProvaServlet?op=excluir&id=${questao.id}"><input type="submit" value="Excluir"/></form></td>
-                </tr>
-            </c:forEach>
-        </table>
+        
+            <select>
+                <c:forEach var="prova" items="${dao.all()}">
+                    <option value="${prova.id}">${prova.titulo}</option>
+                </c:forEach>
+            </select>
+        <br><br><a href="prova.jsp"><button>Ver</button></a>
+        <a href="../index.html"><button>Voltar</button></a><br>
     </center>
 </body>
 </html>

@@ -38,7 +38,7 @@
             </table>
             <br><input type="submit" value="Gerar" />
         </form>
-        <br><a href="../index.html"><button>Voltar</button><br>
+        <br><a href="listar.jsp"><button>Voltar</button><br>
             </center>
 
             </body>

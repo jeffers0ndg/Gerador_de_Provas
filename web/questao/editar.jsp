@@ -18,9 +18,10 @@
             #materia{
                 width: 50%;
             }
-            select{
-
+            select {
                 width: 25%;
+                text-align-last: center;
+                text-align: center;
             }
         </style>
     </head>
