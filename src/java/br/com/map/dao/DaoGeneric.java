@@ -11,12 +11,12 @@ import org.hibernate.criterion.Order;
 
 import br.com.map.util.PersistenceUtil;
 
-public abstract class DaoGenericAbs<T> implements IDaoGeneric<T> {
+public abstract class DaoGeneric<T> implements IDaoGeneric<T> {
 
   EntityManager manager;
   private Class classe;
 
-  public DaoGenericAbs() {
+  public DaoGeneric() {
     manager = PersistenceUtil.getEntityManager();
     classe = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
   }

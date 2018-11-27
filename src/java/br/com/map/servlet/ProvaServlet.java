@@ -9,11 +9,11 @@ import br.com.map.dao.DAOMateria;
 import br.com.map.dao.DAOProva;
 import br.com.map.dao.DAOQuestao;
 import br.com.map.dao.DaoException;
+import br.com.map.facade.ProvaFacade;
 import br.com.map.model.Materia;
 import br.com.map.model.Prova;
 import br.com.map.model.Questao;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.logging.Level;
@@ -29,6 +29,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ProvaServlet extends HttpServlet {
 
+    private  ProvaFacade facade;
+
+    public ProvaServlet() {
+        facade = new ProvaFacade();
+    }
+    
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -36,10 +43,10 @@ public class ProvaServlet extends HttpServlet {
         switch (op) {
             case "gerar":
                 gerar(request);
-                //response.sendRedirect("prova/listar.jsp?msg=0");
+                response.sendRedirect("prova/listar.jsp?msg=0");
                 break;
             case "editar":
-                //editar(request);
+                editar(request);
                 //response.sendRedirect("questao/listar.jsp?msg=1");
                 break;
             case "excluir":
@@ -49,68 +56,18 @@ public class ProvaServlet extends HttpServlet {
         }
     }
 
+    private void editar(HttpServletRequest request) {
+
+    }
+
     private void gerar(HttpServletRequest request) {
         String[] idsMaterias = request.getParameterValues("materias");
-        String titulo = request.getParameter("titulo");
+        String titulo = request.getParameter("titulos");
         
-        Collection<Materia> materias = new ArrayList();
-        Collection<Questao> questoes = new ArrayList();
-        
-        DAOQuestao daoq = new DAOQuestao();
-        DAOMateria daom = new DAOMateria();
-        DAOProva daop = new DAOProva();
-
-        int numPorMateria = 30 / idsMaterias.length, facil = 15, media = 10, dificil = 5;
-
-        //Váriavel que deve ter o numero de posições igual o numero de materias selecionadas
-        int[] x = new int[idsMaterias.length];
-
-        //Preenche cada posição da variavel com o número de questões por matéria
-        //Preenche a lista de questões com as questões selecionadas
         try {
-            for (int i = 0; i < idsMaterias.length; i++) {
-                x[i] = numPorMateria;
-                materias.add(daom.find(Long.valueOf(idsMaterias[i])));
-            }
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-
-        try {
-            for (Questao questao : daoq.all()) {
-                for (int i = 0; i < idsMaterias.length; i++) {
-                    if (questao.getMateria().getId() == Long.valueOf(idsMaterias[i])) {
-                        if (questao.getDificuldade() == 1 && facil > 0 && x[i] > 0) {
-                            x[i]--;
-                            facil--;
-                            questoes.add(questao);
-                        } else {
-                            if (questao.getDificuldade() == 2 && media > 0 && x[i] > 0) {
-                                x[i]--;
-                                media--;
-                                questoes.add(questao);
-                            } else {
-                                if (dificil > 0 && x[i] > 0) {
-                                    x[i]--;
-                                    dificil--;
-                                    questoes.add(questao);
-                                }
-                            }
-                        }
-                    }
-                }
-
-            }
-            Prova p = new Prova();
-            p.setTitulo(titulo);
-            p.getMaterias().addAll(materias);
-            p.getQuestoes().addAll(questoes);
-            daop.save(p);
+            facade.salvarProva(titulo, idsMaterias);
         } catch (DaoException ex) {
             Logger.getLogger(ProvaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 }

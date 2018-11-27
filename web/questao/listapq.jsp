@@ -5,12 +5,12 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="../codificacao.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Quest√µes</title>
+        <title>Questıes</title>
         <style>
             textArea{width: 50%;}
 
@@ -32,7 +32,7 @@
             <h2 style="color:red;">Excluido com sucesso!</h2>
         </c:if>
 
-        <h1>Quest√µes</h1>
+        <h1>Questıes</h1>
 
         <br><a href="cadastrar.jsp"><button>Cadastrar</button></a>
         <a href="../index.html"><button>Voltar</button></a><br>

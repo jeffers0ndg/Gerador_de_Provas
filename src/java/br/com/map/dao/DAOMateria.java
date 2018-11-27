@@ -2,7 +2,7 @@ package br.com.map.dao;
 
 import br.com.map.model.Materia;
 
-public class DAOMateria extends DaoGenericAbs<Materia> {
+public class DAOMateria extends DaoGeneric<Materia> {
 
     public Materia findByName(String name) throws DaoException {
 

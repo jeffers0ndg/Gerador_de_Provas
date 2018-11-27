@@ -5,12 +5,12 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@include file="../codificacao.jsp" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Questıes</title>
+        <title>Quest√µes</title>
         <style>
             textArea{width: 50%;}
 
@@ -40,7 +40,7 @@
         <jsp:useBean id="dao" class="br.com.map.dao.DAOProva"/>
         <br><table border="1" cellpadding="4" cellspacing="0">
             <tr>
-                <th>TÌtulo</th>
+                <th>T√≠tulo</th>
                 <th>Detalhes</th>
                 <th>Editar</th>
                 <th>Excluir</th>
@@ -48,9 +48,9 @@
             <c:forEach var="prova" items="${dao.all()}">
                 <tr>
                     <td>${prova.titulo}</td>
-                    <td><a href="detalhes.jsp?id=${prova.id}"><button>Ver</button></a></td>
-                    <td><a href="editar.jsp?id=${prova.id}"><button>Editar</button></a></td>
-                    <td><form method="POST" action="../ProvaServlet?op=excluir&id=${prova.id}"><input type="submit" value="Excluir"/></form></td>
+                    <td><a href="listardetalhes.jsp?id=${questao.id}"><button>Ver</button></a></td>
+                    <td><a href="editar.jsp?id=${questao.id}"><button>Editar</button></a></td>
+                    <td><form method="POST" action="../ProvaServlet?op=excluir&id=${questao.id}"><input type="submit" value="Excluir"/></form></td>
                 </tr>
             </c:forEach>
         </table>

@@ -5,14 +5,14 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="../codificacao.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastrar Quest√£o</title>
+        <title>Cadastrar Quest„o</title>
         <style>
-             textArea{
+            textArea{
                 width: 50%;
             }
             #materia{
@@ -26,7 +26,7 @@
     </head>
     <body>
     <center>
-        <h1>Editar Quest√µes</h1>
+        <h1>Editar Questıes</h1>
 
         <p><strong>Materia:</strong></p>
         <jsp:useBean id="daoQuestao" class="br.com.map.dao.DAOQuestao"/>
@@ -44,43 +44,47 @@
                     </c:if>
                 </c:forEach>
             </select>
-            
-            <p><strong>Resolu√ß√£o:</strong><strong style="margin-left: 19%">Dificuldade:</strong></p>
-            
+
+            <p><strong>ResoluÁ„o:</strong><strong style="margin-left: 19%">Dificuldade:</strong></p>
+
             <select name="resolucao">
-                <c:if test="${questao.resolucao eq a}">
-                    <option selected value="a">A</option> 
+
+                <c:if test="${questao.resolucao eq 'A'}">
+                    <option selected value="A">A</option> 
                 </c:if>
-                <c:if test="${questao.resolucao eq b}">
-                    <option selected value="b">B</option> 
+                <c:if test="${questao.resolucao != 'A'}">
+                    <option value="A">A</option> 
                 </c:if>
-                <c:if test="${questao.resolucao eq c}">
-                    <option selected value="c">C</option> 
+                <c:if test="${questao.resolucao eq 'B'}">
+                    <option selected value="B">B</option> 
                 </c:if>
-                <c:if test="${questao.resolucao eq d}">
-                    <option selected value="d">D</option> 
+                <c:if test="${questao.resolucao != 'B'}">
+                    <option value="B">B</option> 
                 </c:if>
-                <c:if test="${questao.resolucao eq e}">
-                    <option selected value="e">E</option> 
+                <c:if test="${questao.resolucao eq 'C'}">
+                    <option selected value="C">C</option> 
+                </c:if>
+                <c:if test="${questao.resolucao != 'C'}">
+                    <option value="C">C</option> 
+                </c:if>
+                <c:if test="${questao.resolucao eq 'D'}">
+                    <option selected value="D">D</option> 
+                </c:if>
+                <c:if test="${questao.resolucao != 'D'}">
+                    <option value="D">D</option> 
+                </c:if>
+                <c:if test="${questao.resolucao eq 'E'}">
+                    <option selected value="E">E</option> 
+                </c:if>
+                <c:if test="${questao.resolucao != 'E'}">
+                    <option value="E">E</option> 
                 </c:if>
 
-                <c:if test="${questao.resolucao != a}">
-                    <option value="a">A</option> 
-                </c:if>
-                <c:if test="${questao.resolucao != b}">
-                    <option value="b">B</option> 
-                </c:if>
-                <c:if test="${questao.resolucao != c}">
-                    <option value="c">C</option> 
-                </c:if>
-                <c:if test="${questao.resolucao != d}">
-                    <option value="d">D</option> 
-                </c:if>
-                <c:if test="${questao.resolucao != e}">
-                    <option value="e">E</option> 
-                </c:if>
+
+
+
             </select>
-            
+
             <select name="dificuldade">
                 <c:if test="${questao.dificuldade == 1}">
                     <option selected value="1">Facil</option>    
@@ -105,7 +109,7 @@
 
             <p><strong>Enunciado:</strong></p>
             <textarea name="enunciado">${questao.enunciado}</textarea><br>
-            
+
             <p><strong>A)</strong></p>
             <textarea name="letraa">${questao.altLetraA}</textarea><br>
             <p><strong>B)</strong></p>
@@ -118,7 +122,7 @@
             <textarea name="letrae">${questao.altLetraE}</textarea><br><br>
             <input type="submit" value="Editar"/>
         </form>
-            <br><a href="listar.jsp"><button>Voltar</button></a>
+        <br><a href="listar.jsp"><button>Voltar</button></a>
     </center> 
 </body>
 </html>

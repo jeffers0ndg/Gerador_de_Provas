@@ -5,7 +5,7 @@
     Author     : Desen
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="../codificacao.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,11 +22,11 @@
 
         <jsp:useBean id="dao" class="br.com.map.dao.DAOMateria"/>
         <form method="POST" action="../ProvaServlet?op=gerar">
-            <p><strong>TÃ­tulo:</strong></p>
-            <input type="text" nome="titulo"/><br><br>
+            <p><strong>Título:</strong></p>
+            <input type="text" name="titulos"/><br><br>
             <table border="1" cellpadding="4" cellspacing="0">
                 <tr>
-                    <th>MatÃ©ria</th>
+                    <th>Matéria</th>
                 </tr>
 
                 <c:forEach var="materia" items="${dao.all()}">
