@@ -53,17 +53,17 @@
                 <option value="3">Dificil</option>
             </select>
             <p><strong>Enunciado:</strong></p>
-            <textarea name="enunciado" ></textarea><br>
+            <textarea name="enunciado" required></textarea><br>
             <p><strong>A)</strong></p>
-            <textarea name="letraa"></textarea><br>
+            <textarea name="letraa" required></textarea><br>
             <p><strong>B)</strong></p>
-            <textarea name="letrab"></textarea><br>
+            <textarea name="letrab" required></textarea><br>
             <p><strong>C)</strong></p>
-            <textarea name="letrac"></textarea><br>
+            <textarea name="letrac" required></textarea><br>
             <p><strong>D)</strong></p>
-            <textarea name="letrad"></textarea><br>
+            <textarea name="letrad" required></textarea><br>
             <p><strong>E)</strong></p>
-            <textarea name="letrae"></textarea><br><br>
+            <textarea name="letrae" required></textarea><br><br>
             <input type="submit" value="Cadastrar" />
         </form>
         <br><a href="listar.jsp"><button>Voltar</button></a>

@@ -7,7 +7,6 @@ import br.com.map.dao.DaoException;
 import br.com.map.model.Materia;
 import br.com.map.model.Prova;
 import br.com.map.model.Questao;
-import br.com.map.servlet.ProvaServlet;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.logging.Level;

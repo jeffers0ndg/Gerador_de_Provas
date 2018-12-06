@@ -109,18 +109,18 @@
 
 
             <p><strong>Enunciado:</strong></p>
-            <textarea name="enunciado">${questao.enunciado}</textarea><br>
+            <textarea name="enunciado" required>${questao.enunciado}</textarea><br>
 
             <p><strong>A)</strong></p>
-            <textarea name="letraa">${questao.altLetraA}</textarea><br>
+            <textarea name="letraa" required>${questao.altLetraA}</textarea><br>
             <p><strong>B)</strong></p>
-            <textarea name="letrab">${questao.altLetraB}</textarea><br>
+            <textarea name="letrab" required>${questao.altLetraB}</textarea><br>
             <p><strong>C)</strong></p>
-            <textarea name="letrac">${questao.altLetraC}</textarea><br>
+            <textarea name="letrac" required>${questao.altLetraC}</textarea><br>
             <p><strong>D)</strong></p>
-            <textarea name="letrad">${questao.altLetraD}</textarea><br>
+            <textarea name="letrad" required>${questao.altLetraD}</textarea><br>
             <p><strong>E)</strong></p>
-            <textarea name="letrae">${questao.altLetraE}</textarea><br><br>
+            <textarea name="letrae" required>${questao.altLetraE}</textarea><br><br>
             <input type="submit" value="Editar"/>
         </form>
         <br><a href="listar.jsp"><button>Voltar</button></a>
