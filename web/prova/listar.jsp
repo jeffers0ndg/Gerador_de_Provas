@@ -31,6 +31,9 @@
         <c:if test="${param.msg eq 2}">
             <h2 style="color:red;">Excluido com sucesso!</h2>
         </c:if>
+        <c:if test="${param.msg eq 3}">
+            <h2 style="color:red;">Erro questões insuficientes!</h2>
+        </c:if>
 
         <h1>Prova</h1>
 

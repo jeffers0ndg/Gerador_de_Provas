@@ -88,7 +88,7 @@ public class ProvaFacade {
         daop.update(p);
     }
 
-    public void salvarProva(String titulo, String[] idsMaterias) throws DaoException {
+    public boolean salvarProva(String titulo, String[] idsMaterias) throws DaoException {
         Collection<Materia> materias = new ArrayList();
         Collection<Questao> questoes = new ArrayList();
 
@@ -132,7 +132,16 @@ public class ProvaFacade {
         p.setTitulo(titulo);
         p.getMaterias().addAll(materias);
         p.getQuestoes().addAll(questoes);
-        daop.save(p);
+        
+        //return questoes.size()== 30;
+        
+        if(questoes.size()== 30){
+            daop.save(p);
+            return true;
+        }else{
+            return false;
+            
+        }
     }
 
     public void excluirProva(long id) throws DaoException {

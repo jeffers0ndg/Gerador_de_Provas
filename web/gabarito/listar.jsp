@@ -38,15 +38,15 @@
        
 
         <jsp:useBean id="dao" class="br.com.map.dao.DAOProva"/>
-        <form method="POST" action="../GabaritoServlet?op=gerar">
+        <form method="POST" action="../GabaritoServlet">
             <select name="idProva">
                 <c:forEach var="prova" items="${dao.all()}">
                     <option value="${prova.id}">${prova.titulo}</option>
                 </c:forEach>
             </select>
+            <input type="submit" value="Gerar"/>
         </form>
-        
-        <br><br><a href="prova.jsp"><button>Gerar</button></a>
+        <br><br>
         <a href="../index.html"><button>Voltar</button></a><br>
     </center>
 </body>

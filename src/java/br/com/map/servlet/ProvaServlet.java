@@ -42,8 +42,8 @@ public class ProvaServlet extends HttpServlet {
         String op = request.getParameter("op");
         switch (op) {
             case "gerar":
-                gerar(request);
-                response.sendRedirect("prova/listar.jsp?msg=0");
+                String msg = gerar(request)?"msg=0":"msg=3";
+                response.sendRedirect("prova/listar.jsp?"+msg);
                 break;
             case "editar":
                 editar(request);
@@ -68,15 +68,16 @@ public class ProvaServlet extends HttpServlet {
         }
     }
 
-    private void gerar(HttpServletRequest request) {
+    private boolean gerar(HttpServletRequest request) {
         String[] idsMaterias = request.getParameterValues("materias");
         String titulo = request.getParameter("titulos");
         
         try {
-            facade.salvarProva(titulo, idsMaterias);
+            return facade.salvarProva(titulo, idsMaterias);
         } catch (DaoException ex) {
             Logger.getLogger(ProvaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return false;
     }
 
     private void excluir(HttpServletRequest request) {

@@ -15,15 +15,12 @@
     <body>
     <center>
 
-        <c:if test="${param.msg eq 0}">
-            <h2 style="color:greenyellow;">Prova gerada com sucesso!</h2>
-        </c:if>
         <h1>Gerar Prova</h1>
 
         <jsp:useBean id="dao" class="br.com.map.dao.DAOMateria"/>
         <form method="POST" action="../ProvaServlet?op=gerar">
             <p><strong>Título:</strong></p>
-            <input type="text" name="titulos"/><br><br>
+            <input type="text" name="titulos" required/><br><br>
             <table border="1" cellpadding="4" cellspacing="0">
                 <tr>
                     <th>Matéria</th>
